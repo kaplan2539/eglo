@@ -234,6 +234,8 @@ int eglo_init(int *width, int *height, int gles_version)
 {
     eglo_quit();
 
+    setenv("DISPLAY", ":0", 0);
+
     g_eglo_window = new EGLWindow(DEFAULT_WIDTH, DEFAULT_HEIGHT, gles_version, eglo_version_string);
 
     if (width != nullptr) {
