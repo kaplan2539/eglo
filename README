@@ -17,3 +17,10 @@ How to build the library and example app:
 How to run the example:
 
     ./egloapp
+
+For apps that don't work well with the small screen (480x272), you can
+set the environment variable EGLO_SCALE to enable the experimental FBO
+scaling code, for example:
+
+    env EGLO_SCALE=2 ./egloapp    # Uses virtual screen size 960x544
+    env EGLO_SCALE=4 ./egloapp    # Uses virtual screen size 1920x1088

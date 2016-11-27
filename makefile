@@ -4,7 +4,7 @@ TARGET_LDFLAGS += -lGLESv2 -leglo -L. -Wl,-rpath .
 
 SHARED := libeglo.so
 SHARED_OBJ := eglo.o
-SHARED_LDFLAGS += -lEGL -lX11
+SHARED_LDFLAGS += -lEGL -lGLESv2 -lGLESv1_CM -lX11
 
 CXXFLAGS += -O2 -std=c++14 -fPIC
 
