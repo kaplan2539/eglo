@@ -434,7 +434,7 @@ EGLWindow::swap()
 
 
 const char *eglo_version_string =
-"@(#) eglo 0.0.1 (2016-11-24) -- Copyright (c) 2016, Thomas Perl";
+"@(#) eglo 0.0.2 (2016-11-27) -- Copyright (c) 2016, Thomas Perl";
 
 constexpr int DEFAULT_WIDTH = 480 + 1;
 constexpr int DEFAULT_HEIGHT = 272;
