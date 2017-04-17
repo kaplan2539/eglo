@@ -22,6 +22,7 @@
 
 #include <vector>
 
+#include <EGL/egl.h>
 #include <GLES2/gl2.h>
 
 #include "eglo.h"
@@ -113,6 +114,12 @@ v4 base{ 0.6f, 0.f, 0.f, 0.f };
 
 void egloapp_init(int width, int height)
 {
+    const char *egl_extensions = eglQueryString(eglGetDisplay(EGL_DEFAULT_DISPLAY), EGL_EXTENSIONS);
+    const GLubyte *gl_extensions = glGetString(GL_EXTENSIONS);
+
+    printf("= EGL extensions==\n%s\n\n= GL extensions =\n%s\n\n",
+            egl_extensions, gl_extensions);
+
     GLuint shaderProgram = glCreateProgram();
     glAttachShader(shaderProgram, load_shader(vertex_src, GL_VERTEX_SHADER));
     glAttachShader(shaderProgram, load_shader(fragment_src, GL_FRAGMENT_SHADER));
