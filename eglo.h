@@ -36,7 +36,7 @@ typedef union _EgloEvent {
     int type;
     struct {
         int type;
-        int key;
+        int key; // X KeySym from X11/keysym.h
     } key;
     struct {
         int type;

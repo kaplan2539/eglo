@@ -24,6 +24,7 @@
 
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
+#include <X11/keysym.h>
 
 #include "eglo.h"
 
@@ -205,7 +206,9 @@ int main(int argc, char *argv[])
                     quit = true;
                     break;
                 case EGLO_KEY_DOWN:
-                    quit = true;
+                    if (e.key.key == XK_Escape) {
+                        quit = true;
+                    }
                     break;
                 case EGLO_KEY_UP:
                     break;

@@ -69,7 +69,7 @@ X11Window::X11Window(int width, int height, int scale)
    Window root = DefaultRootWindow(dpy);
 
    XSetWindowAttributes swa;
-   swa.event_mask = (ExposureMask | PointerMotionMask | KeyPressMask | ButtonPressMask |
+   swa.event_mask = (ExposureMask | PointerMotionMask | KeyPressMask | KeyReleaseMask | ButtonPressMask |
            ButtonReleaseMask | Button1MotionMask);
 
    win = XCreateWindow(dpy, root, 0, 0, width, height, 0, CopyFromParent,
@@ -123,11 +123,11 @@ X11Window::process_event(EgloEvent *event)
             return 1;
         } else if (xev.type == KeyPress) {
             event->type = EGLO_KEY_DOWN;
-            // TODO
+            event->key.key = XLookupKeysym(&xev.xkey, 0);
             return 1;
         } else if (xev.type == KeyRelease) {
             event->type = EGLO_KEY_UP;
-            // TODO
+            event->key.key = XLookupKeysym(&xev.xkey, 0);
             return 1;
         } else {
             printf("Unhandled: %d\n", xev.type);
