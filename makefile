@@ -8,6 +8,9 @@ SHARED_LDFLAGS += -lEGL -lGLESv2 -lGLESv1_CM -lX11
 
 CXXFLAGS += -O2 -std=c++14 -fPIC
 
+PREFIX ?= /usr/local
+DESTDIR ?=
+
 all: $(TARGET) $(SHARED)
 
 $(TARGET): $(TARGET_OBJ) $(SHARED)
@@ -15,6 +18,11 @@ $(TARGET): $(TARGET_OBJ) $(SHARED)
 
 $(SHARED): $(SHARED_OBJ)
 	$(CXX) -shared $(CXXFLAGS) -o $@ $< $(SHARED_LDFLAGS)
+
+install: $(SHARED)
+	mkdir -p $(DESTDIR)$(PREFIX)/lib $(DESTDIR)$(PREFIX)/include
+	install -m 644 $(SHARED) $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 eglo.h $(DESTDIR)$(PREFIX)/include/
 
 clean:
 	$(RM) $(TARGET) $(TARGET_OBJ) $(SHARED) $(SHARED_OBJ)
