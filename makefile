@@ -44,3 +44,7 @@ $(DEB): $(SHARED)
 
 clean:
 	$(RM) $(TARGET) $(TARGET_OBJ) $(SHARED) $(SHARED_OBJ) $(DEB)
+
+distclean: clean
+
+.PHONY: all install deb clean distclean
