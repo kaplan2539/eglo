@@ -1,6 +1,6 @@
 /**
  * eglo -- Minimalistic X11/EGL abstraction for Pocket C.H.I.P
- * Copyright (c) 2016, Thomas Perl <m@thp.io>.
+ * Copyright (c) 2016, 2017, 2018 Thomas Perl <m@thp.io>.
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -434,7 +434,7 @@ EGLWindow::swap()
 
 
 const char *eglo_version_string =
-"@(#) eglo 0.0.2 (2016-11-27) -- Copyright (c) 2016, Thomas Perl";
+"@(#) eglo 0.0.3 (2018-02-21) -- Copyright (c) 2016, 2017, 2018 Thomas Perl";
 
 constexpr int DEFAULT_WIDTH = 480 + 1;
 constexpr int DEFAULT_HEIGHT = 272;
